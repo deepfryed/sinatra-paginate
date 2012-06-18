@@ -50,7 +50,7 @@ bundle exec rackup -p 3000
 ## Options
 
 ```haml
-!= paginate @result, renderer: 'erb', items_per_page: 5, uri: '/users', width: 10, labels: {first: 'first', last: 'last'}
+!= paginate @result, renderer: 'erb', items_per_page: 10, uri: '/', width: 5, labels: {first: '«', last: '»'}
 ```
 
 # License
