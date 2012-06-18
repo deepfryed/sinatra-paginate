@@ -36,7 +36,7 @@ end
       %span= user.id
       %span= user.name
 
-!= paginate @result
+!= paginate @result, items_per_page: 10, labels: {first: '«', last: '»'}, renderer: 'haml'
 ```
 
 ## Sample Sinatra Application
@@ -49,8 +49,13 @@ bundle exec rackup -p 3000
 
 ## Options
 
-```haml
-!= paginate @result, renderer: 'erb', items_per_page: 10, uri: '/', width: 5, labels: {first: '«', last: '»'}
+```
+* renderer         # rendering engine to use (default: haml)
+* view             # override default view and use custom one
+* items_per_page   # maximum items per page (default: 10)
+* uri              # base pagination uri (defaults: request.path_info)
+* width            # number of pagination buttons (default: 5)
+* labels           # text labels for first & last buttons (default: {first: '«', last: '»'})
 ```
 
 # License
