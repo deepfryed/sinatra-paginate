@@ -13,7 +13,8 @@ Struct.new('Result', :total, :size, :tuples)
 class MyApp < Sinatra::Base
   register Sinatra::Paginate
   get '/' do
-    @result = Struct::Result.new(User.count, 10, User.all(limit: 10, offset: params[:page].to_i * 10)
+    @users  = User.all(limit: 10, offset: params[:page].to_i * 10)
+    @result = Struct::Result.new(User.count, @users.count, @users)
     haml :index
   end
 end
