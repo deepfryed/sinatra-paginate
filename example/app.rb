@@ -1,3 +1,4 @@
+require 'haml'
 require 'sinatra/base'
 require 'sinatra/paginate'
 require 'active_record'

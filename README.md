@@ -36,7 +36,7 @@ end
       %span= user.id
       %span= user.name
 
-= paginate @result
+!= paginate @result
 ```
 
 ## Sample Sinatra Application
@@ -45,6 +45,12 @@ end
 bundle
 cd example/
 bundle exec rackup -p 3000
+```
+
+## Options
+
+```haml
+!= paginate @result, renderer: 'erb', items_per_page: 5, uri: '/users', width: 10, labels: {first: 'first', last: 'last'}
 ```
 
 # License
