@@ -1,0 +1,6 @@
+%ul
+  - @result.users.each do |user|
+    %li
+      %span= user.name
+
+= paginate @result
