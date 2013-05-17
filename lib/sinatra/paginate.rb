@@ -48,6 +48,8 @@ module Sinatra
       app.helpers self
     end
   end # Paginate
+
+  register Paginate
 end # Sinatra
 
 __END__
