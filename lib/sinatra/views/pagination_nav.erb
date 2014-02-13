@@ -1,0 +1,20 @@
+<% pagination_css = {-1 => 'btn-prev', 1 => 'btn-next', 0 => 'btn-primary'} %>
+<ul class="sinatra-pagination">
+  <li>
+    <a class="btn btn-first" href="<%= pagination_url(uri, 'page' => 1) %>">
+      <%= labels[:first] %>
+    </a>
+  </li>
+  <% (from..to).each do |n| %>
+    <li>
+      <a class="btn <%= pagination_css[n - page] %>" href="<%= pagination_url(uri, 'page' => n) %>">
+        <%= n %>
+      </a>
+    </li>
+  <% end %>
+  <li>
+    <a class="btn btn-last" href="<%= pagination_url(uri, 'page' => last) %>">
+      <%= labels[:last] %>
+    </a>
+  </li>
+</ul>

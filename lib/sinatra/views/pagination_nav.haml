@@ -1,0 +1,17 @@
+:css
+  ul.sinatra-pagination > li {
+    float: left;
+    margin-right: 10px;
+    display: inline-block;
+    list-style-type: none;
+  }
+
+- pagination_css = {-1 => 'btn-prev', 1 => 'btn-next', 0 => 'btn-primary'}
+%ul.sinatra-pagination
+  %li
+    %a.btn.btn-first{href: pagination_url(uri, params.merge('page' => 1))}= labels[:first]
+  - (from..to).each do |n|
+    %li
+      %a{href: pagination_url(uri, params.merge('page' => n)), class: "btn #{pagination_css[n - page]}"}= n
+  %li
+    %a.btn.btn-last{href: pagination_url(uri, params.merge('page' => last))}= labels[:last]
